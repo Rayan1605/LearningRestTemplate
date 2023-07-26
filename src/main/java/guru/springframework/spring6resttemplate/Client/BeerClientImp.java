@@ -14,7 +14,6 @@ import org.springframework.web.client.RestTemplate;
 public class BeerClientImp implements BeerClient {
 
     private final RestTemplateBuilder restTemplateBuilder;
-
     @Override
     public Page<BeerDTO> listBeers() {
         RestTemplate restTemplate = restTemplateBuilder.build();
