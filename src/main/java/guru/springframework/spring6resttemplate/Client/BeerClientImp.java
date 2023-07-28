@@ -35,6 +35,7 @@ public class BeerClientImp implements BeerClient {
                 Beer_URL +"/api/v1/beer", String.class
         );
 
+        /*
         ResponseEntity<Map> entity = restTemplate.getForEntity(
                  Beer_URL +"/api/v1/beer", Map.class
         );
@@ -89,5 +90,7 @@ public class BeerClientImp implements BeerClient {
         //Map parses the JSON automatically into a nested data structure
         System.out.println(stringResponse.getBody());
         return null;
+    */
     }
+
 }
