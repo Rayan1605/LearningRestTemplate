@@ -16,6 +16,7 @@ import java.util.Map;
 public class BeerClientImp implements BeerClient {
 
     private final RestTemplateBuilder restTemplateBuilder;
+    private static final String Beer_URL = "https://localhost:8080";
     @Override
     public Page<BeerDTO> listBeers() {
         RestTemplate restTemplate = restTemplateBuilder.build();
@@ -30,11 +31,11 @@ public class BeerClientImp implements BeerClient {
         // like status code.
         //So the first call gets the beer API response as a String, the second as a Map.
         ResponseEntity<String> stringResponse = restTemplate.getForEntity(
-                "https://localhost:8080/api/v1/beer", String.class
+                Beer_URL +"/api/v1/beer", String.class
         );
 
         ResponseEntity<Map> entity = restTemplate.getForEntity(
-                "https://localhost:8080/api/v1/beer", Map.class
+                 Beer_URL +"/api/v1/beer", Map.class
         );
         //So with String.class:
         //
