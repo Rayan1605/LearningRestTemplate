@@ -28,9 +28,10 @@ public class RestPageImpl<BeerDto> extends PageImpl<BeerDto> {
 //  "size": 10,
 //  "totalElements": 52
 //}
-//The constructor would map these properties to the RestPageImpl to construct it with the provided pagination metadata and beer data.
-//
-//Then this RestPageImpl can be returned directly from a Spring REST controller to provide the paginated response model.
+//The constructor would map these properties to the RestPageImpl to construct it with the
+// provided pagination metadata and beer data.
+//Then this RestPageImpl can be returned directly from a Spring REST controller to
+// provide the paginated response model.
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public RestPageImpl(@JsonProperty("content") List<BeerDto> content,
                         @JsonProperty("number") int page,
