@@ -36,6 +36,22 @@ public class BeerClientImp implements BeerClient {
         ResponseEntity<Map> entity = restTemplate.getForEntity(
                 "https://localhost:8080/api/v1/beer", Map.class
         );
+        //So with String.class:
+        //
+        //You will get the raw JSON text as a String object.
+        //You will need to parse it yourself, for example into a JSONObject.
+        //Useful if you want to parse the JSON manually.
+        //With Map.class:
+        //
+        //The JSON is automatically parsed and deserialized into a Map.
+        //Nested JSON objects become nested Maps.
+        //JSON arrays become Lists.
+        //Less code, but you lose some control over parsing.
+        //Easier if you just need to access the data.
+        //So in summary:
+        //
+        //String returns raw JSON text
+        //Map parses the JSON automatically into a nested data structure
         System.out.println(stringResponse.getBody());
         return null;
     }
