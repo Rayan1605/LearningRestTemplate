@@ -37,6 +37,12 @@ public class BeerClientImp implements BeerClient {
         ResponseEntity<Map> entity = restTemplate.getForEntity(
                  Beer_URL +"/api/v1/beer", Map.class
         );
+
+        ResponseEntity<Map> entity = restTemplate.getForEntity(
+                Beer_URL +"/api/v1/beer", Map.class
+        );
+
+
         //So with String.class:
         //
         //You will get the raw JSON text as a String object.
