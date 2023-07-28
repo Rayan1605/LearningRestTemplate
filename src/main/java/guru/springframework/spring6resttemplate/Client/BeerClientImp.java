@@ -38,10 +38,37 @@ public class BeerClientImp implements BeerClient {
         ResponseEntity<Map> entity = restTemplate.getForEntity(
                  Beer_URL +"/api/v1/beer", Map.class
         );
+//This is using the Jackson JSON parser to deserialize the response into a JsonNode.
+        //Jackson is a popular open source Java library used for:
+        //
+        //JSON serialization/deserialization - converting between JSON strings and Java objects.
+        // Jackson provides simple annotations for mapping Java classes to JSON and vice versa.
+        //JSON parsing - reading JSON into Java objects and writing Java objects into JSON.
 
         ResponseEntity<JsonNode> JsonResponse = restTemplate.getForEntity(
                 Beer_URL +"/api/v1/beer", JsonNode.class
         );
+        //So getting the
+
+        JsonResponse.getBody().get("content").forEach(node ->
+                System.out.println(node.get("beerName").asText()));
+//Gets the body of the JsonResponse which contains the parsed JSON content.
+//.get("content")
+//
+//Calls get() on the body to retrieve the value of the "content" field.
+//This drills into the JSON structure to get the "content" array.
+//.forEach(node -> ...)
+//
+//Loops through each element in the "content" array.
+//The lambda parameter node refers to the current element.
+//node.get("beerName")
+//
+//For each node/element, get the value of the "beerName" field.
+//.asText()
+//
+//Converts the beerName value to a String.
+
+
 
 
         //So with String.class:
