@@ -2,6 +2,7 @@ package guru.springframework.spring6resttemplate.Client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import guru.springframework.spring6resttemplate.model.BeerDTO;
+import guru.springframework.spring6resttemplate.model.RestPageImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.data.domain.Page;
@@ -32,8 +33,8 @@ public class BeerClientImp implements BeerClient {
         //The ResponseEntity contains both the response body and additional metadata
         // like status code.
         //So the first call gets the beer API response as a String, the second as a Map.
-        ResponseEntity<PageImpl> stringResponse = restTemplate.getForEntity(
-                Beer_URL +"/api/v1/beer", PageImpl.class
+        ResponseEntity<RestPageImpl> stringResponse = restTemplate.getForEntity(
+                Beer_URL +"/api/v1/beer", RestPageImpl.class
         );
             return null;
         /*
