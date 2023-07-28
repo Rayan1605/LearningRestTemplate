@@ -11,22 +11,22 @@ import java.util.List;
 
 //This is telling to ignore pageable property
 @JsonIgnoreProperties(ignoreUnknown = true, value = "pageable")
-public class RestPageImpl<T> extends PageImpl<T> {
+public class RestPageImpl<BeerDto> extends PageImpl<BeerDto> {
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public RestPageImpl(@JsonProperty("content") List<T> content,
+    public RestPageImpl(@JsonProperty("content") List<BeerDto> content,
                         @JsonProperty("number") int page,
                         @JsonProperty("size") int size,
                         @JsonProperty("totalElements") long totalElements) {
-        super(content, PageRequest.of(page, size), totalElements);
+        super((List<BeerDto>) content, PageRequest.of(page, size), totalElements);
     }
 
 
-    public RestPageImpl(List<T> content, Pageable pageable, long total) {
-        super(content, pageable, total);
+    public RestPageImpl(List<BeerDto> content, Pageable pageable, long total) {
+        super((List<BeerDto>) content, pageable, total);
     }
 
-    public RestPageImpl(List<T> content) {
-        super(content);
+    public RestPageImpl(List<BeerDto> content) {
+        super((List<BeerDto>) content);
     }
 }
