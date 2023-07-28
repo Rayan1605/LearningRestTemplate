@@ -12,7 +12,25 @@ import java.util.List;
 //This is telling to ignore pageable property
 @JsonIgnoreProperties(ignoreUnknown = true, value = "pageable")
 public class RestPageImpl<BeerDto> extends PageImpl<BeerDto> {
-
+//This class represents a single page in a paginated list of data.
+// It is used to return paginated results from an API.
+//The constructor takes in:
+//content - The data on this page
+//page - The page number
+//size - Number of items per page
+//totalElements - Total number of items overall
+//These values are mapped automatically from JSON using the @JsonProperty annotations.
+//For example, if requesting page 2 of beers API:
+//The JSON  contain:
+//{
+//  "content": [/* beers here */],
+//  "number": 2,
+//  "size": 10,
+//  "totalElements": 52
+//}
+//The constructor would map these properties to the RestPageImpl to construct it with the provided pagination metadata and beer data.
+//
+//Then this RestPageImpl can be returned directly from a Spring REST controller to provide the paginated response model.
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public RestPageImpl(@JsonProperty("content") List<BeerDto> content,
                         @JsonProperty("number") int page,
