@@ -149,6 +149,8 @@ public class BeerClientImp implements BeerClient {
 RestTemplate restTemplate = restTemplateBuilder.build();
   restTemplate.put(GET_BEER_BY_ID_PATH, beerDTO, beerDTO.getId());
 
+   return getBeerById(beerDTO.getId());
+    }
 
     }
 
