@@ -144,6 +144,11 @@ public class BeerClientImp implements BeerClient {
 
     }
 
+    //So we are getting the updated beer by ID.
+    //We are using RestTemplate's put method to update the beer.
+    //We pass it the URL path to PUT to, like "/beer/{beerId}".
+    //Second we pass it the updated Beer object.
+    //Third we pass it the ID of the beer to update.
     @Override
     public BeerDTO updateBeer(BeerDTO beerDTO) {
 RestTemplate restTemplate = restTemplateBuilder.build();
