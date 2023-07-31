@@ -151,8 +151,7 @@ RestTemplate restTemplate = restTemplateBuilder.build();
 
    return getBeerById(beerDTO.getId());
     }
-
-    }
-
-
 }
+
+
+
