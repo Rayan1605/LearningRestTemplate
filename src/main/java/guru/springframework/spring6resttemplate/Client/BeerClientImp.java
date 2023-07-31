@@ -119,6 +119,9 @@ public class BeerClientImp implements BeerClient {
     public BeerDTO CreateBeer(BeerDTO beerDTO) {
         RestTemplate restTemplate = restTemplateBuilder.build();
 
+        ResponseEntity<BeerDTO> responseEntity = restTemplate.postForEntity(
+                GET_BEER_PATH, beerDTO, BeerDTO.class
+        );
 
 
     }
