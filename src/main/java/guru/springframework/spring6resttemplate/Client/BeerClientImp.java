@@ -145,7 +145,8 @@ public class BeerClientImp implements BeerClient {
     }
 
     @Override
-    public void updateBeer(BeerDTO beerDTO) {
+    public BeerDTO updateBeer(BeerDTO beerDTO) {
+
 
     }
 
