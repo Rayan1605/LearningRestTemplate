@@ -145,6 +145,8 @@ public class BeerClientImp implements BeerClient {
         // the full response in an easy way. All the response details packaged together.
         ResponseEntity<BeerDTO> responseEntity = restTemplate.postForEntity(
                 GET_BEER_PATH, beerDTO, BeerDTO.class
+
+
         );
 
 
