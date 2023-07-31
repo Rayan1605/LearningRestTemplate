@@ -10,8 +10,10 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -20,9 +22,15 @@ public class BeerClientImp implements BeerClient {
 
     private final RestTemplateBuilder restTemplateBuilder;
     private static final String Beer_URL = "https://localhost:8080";
+    private static final String GET_BEER_PATH  = "/api/v1/beer";
+    private static final String GET_BEER_BY_ID_PATH  = "/api/v1/beer/{beerId}";
     @Override
     public Page<BeerDTO> listBeers() {
         RestTemplate restTemplate = restTemplateBuilder.build();
+        UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder
+                .fromUriString(Beer_URL + "/api/v1/beer")
+                .queryParam("pageNumber", 0)
+                .queryParam("pageSize", 25);
 //restTemplate.getForEntity()
 // makes a GET request to the "https://localhost:8080/api/v1/beer" endpoint.
 
@@ -94,5 +102,18 @@ public class BeerClientImp implements BeerClient {
         return null;
     */
     }
+//The RestTemplate makes the GET request to the specified endpoint path
+//The id parameter value gets substituted into the path
+//The JSON response body gets deserialized into a BeerDTO
+//And the BeerDTO is returned containing the response data
+//This allows making a GET call and parsing the JSON result in one line with RestTemplate.
+// The id parameter also demonstrates a variable path segment.
+//    private static final String GET_BEER_BY_ID_PATH  = "/api/v1/beer/{beerId}";
+    @Override
+    public BeerDTO getBeerById(UUID id) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        return restTemplate.getForObject(GET_BEER_BY_ID_PATH, BeerDTO.class, id);
+    }
+
 
 }
