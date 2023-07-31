@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.UUID;
 
@@ -143,8 +144,8 @@ public class BeerClientImp implements BeerClient {
         //You don't have to deal with raw response bits.
         //So in simple terms, think of ResponseEntity as an handy object that represents
         // the full response in an easy way. All the response details packaged together.
-        ResponseEntity<BeerDTO> responseEntity = restTemplate.postForEntity(
-                GET_BEER_PATH, beerDTO, BeerDTO.class
+        URI uri = restTemplate.postForLocation(GET_BEER_PATH, beerDTO);
+
 
 
         );
