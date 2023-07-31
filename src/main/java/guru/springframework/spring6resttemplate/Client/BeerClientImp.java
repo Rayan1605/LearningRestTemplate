@@ -127,19 +127,14 @@ public class BeerClientImp implements BeerClient {
 //We also pass it the Beer object we want to create.
 //This will POST the Beer to the server and create it.
 //The postForLocation method returns a URI object.
-//
 //This URI contains the URL to the created beer resource.
-//
 //Next we want to get the beer we just created using the URI.
-//
 //We use RestTemplate's getForObject method:
-//
 //We pass it the URI's path, uri.getPath()
 //This points to the new beer URL that was returned.
 //We also say to convert the response to a Beer object.
 //This will return the Beer object that was created.
 //So in simple terms:
-//
 //First we POST a new beer to create it
 //This returns a URI to that new beer resource
 //Then we GET that URI to fetch the created beer
