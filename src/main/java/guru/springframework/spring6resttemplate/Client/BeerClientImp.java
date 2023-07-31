@@ -156,6 +156,15 @@ RestTemplate restTemplate = restTemplateBuilder.build();
 
    return getBeerById(beerDTO.getId());
     }
+
+    @Override
+    public void deleteById(UUID id) {
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        //We are using RestTemplate's delete method to delete the beer.
+        //We pass it the URL path to DELETE to, like "/beer/{beerId}".
+        //Second we pass it the ID of the beer to delete.
+        restTemplate.delete(GET_BEER_BY_ID_PATH, id);
+    }
 }
 
 
