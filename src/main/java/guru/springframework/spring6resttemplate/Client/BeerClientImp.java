@@ -118,7 +118,31 @@ public class BeerClientImp implements BeerClient {
     @Override
     public BeerDTO CreateBeer(BeerDTO beerDTO) {
         RestTemplate restTemplate = restTemplateBuilder.build();
-
+//postForEntity() makes a POST request to the specified endpoint path.
+        //The second parameter is the request body. This is the data that will be sent in the request.
+        //The third parameter is the response type. This is the type of object that the
+        // response body will be deserialized into.
+        //The responeEntity contains the response body and additional metadata like status code.
+        //When you make a request to a server, the server sends back a response. The response contains useful information like:
+        //
+        //The data you requested (the body of the response)
+        //The status of the response - was it successful or an error?
+        //Headers with more info about the response.
+        //The ResponseEntity is an object that represents this full response:
+        //
+        //It has the body (the data).
+        //It has the status code (was it OK or error)?
+        //It has the headers.
+        //So it wraps up everything the server sent back after your request.
+        //
+        //With ResponseEntity you can:
+        //
+        //Get the data from the body easily.
+        //Check if request worked with the status.
+        //See extra info from headers.
+        //You don't have to deal with raw response bits.
+        //So in simple terms, think of ResponseEntity as an handy object that represents
+        // the full response in an easy way. All the response details packaged together.
         ResponseEntity<BeerDTO> responseEntity = restTemplate.postForEntity(
                 GET_BEER_PATH, beerDTO, BeerDTO.class
         );
