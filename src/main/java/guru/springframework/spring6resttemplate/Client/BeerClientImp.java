@@ -139,11 +139,7 @@ public class BeerClientImp implements BeerClient {
 //Then we GET that URI to fetch the created beer
 //We use RestTemplate to easily call the API to create and then read the beer.
         URI uri = restTemplate.postForLocation(GET_BEER_PATH, beerDTO);
-        return restTemplate.getForObject(uri.getPath(), BeerDTO.class
-
-
-
-        );
+        return restTemplate.getForObject(uri.getPath(), BeerDTO.class);
 
 
     }
