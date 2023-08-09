@@ -11,9 +11,9 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
 @Configuration
 public class RestTemplateBuilderConfig {
     //So we can get it from the application.properties file
-@Value("${rest.template.username}}")
+@Value("${rest.template.username}")
     String username;
-    @Value("${rest.template.password}}")
+    @Value("${rest.template.password}")
     String password;
   //The RestTemplateBuilder in Spring is used to create and configure RestTemplate instances.
     // Here are some key points:
