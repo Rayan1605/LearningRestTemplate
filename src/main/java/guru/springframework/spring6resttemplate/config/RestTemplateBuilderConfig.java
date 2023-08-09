@@ -38,6 +38,14 @@ public class RestTemplateBuilderConfig {
         DefaultUriBuilderFactory defaultUriBuilderFactory =
                 new DefaultUriBuilderFactory("http://localhost:8080");
         //You need the uriTemplateHandler so it return the correct url
+
+        //Implementing Spring security
+        //restTemplateBuilder.basicAuthentication("user", "password");
+        //Above won't work because it is creating a new RestTemplateBuilder and not using the
+        // we made so what you need to do is: Make a new RestTemplateBuilder and then use the
+        // use the one you already made but add the basic authentication to it
+        RestTemplateBuilder basicAuthRestTemplateBuilder = restTemplateBuilder.
+                basicAuthentication("user", "password");
         return restTemplateBuilder.uriTemplateHandler(defaultUriBuilderFactory);
 
     }
