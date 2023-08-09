@@ -1,7 +1,7 @@
 package guru.springframework.spring6resttemplate.config;
 
 import lombok.Builder;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.client.RestTemplateBuilderConfigurer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -10,7 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 @Configuration
 public class RestTemplateBuilderConfig {
-
+@Value("${rest.template.username}}")
+    String username;
+    @Value("${rest.template.password}}")
+    String password;
   //The RestTemplateBuilder in Spring is used to create and configure RestTemplate instances.
     // Here are some key points:
     //
