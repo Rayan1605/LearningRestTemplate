@@ -49,7 +49,7 @@ public class RestTemplateBuilderConfig {
         // we made so what you need to do is: Make a new RestTemplateBuilder and then use the
         // use the one you already made but add the basic authentication to it
         RestTemplateBuilder basicAuthRestTemplateBuilder = restTemplateBuilder.
-                basicAuthentication("user", "password");
+                basicAuthentication(username, password);
         return restTemplateBuilder.uriTemplateHandler(defaultUriBuilderFactory);
 
     }
