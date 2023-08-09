@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 @Configuration
 public class RestTemplateBuilderConfig {
+    //So we can get it from the application.properties file
 @Value("${rest.template.username}}")
     String username;
     @Value("${rest.template.password}}")
